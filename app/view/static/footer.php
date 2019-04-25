@@ -178,8 +178,8 @@
     <!-- Footer End -->
 
     <!-- Main Js File -->
-    <script src="app/assets/js/app.js"></script>
-    <script src="app/assets/js/ajax.js"></script>
+    <script src="/app/assets/js/app.js"></script>
+    <script src="/app/assets/js/ajax.js"></script>
 
 
 </body></html>

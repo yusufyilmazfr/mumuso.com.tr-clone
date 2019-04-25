@@ -17,12 +17,14 @@ function Load()
 
 Load();
 
+
 if (session_status() == PHP_SESSION_NONE)
     session_start();
 
 include 'system/config.php';
 
 $connect = mysqli_connect($config['db']['host'],$config['db']['user'],$config['db']['password'],$config['db']['name']);
+
 mysqli_set_charset($connect,'utf8');
 
 ?>

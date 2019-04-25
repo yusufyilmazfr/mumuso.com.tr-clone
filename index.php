@@ -18,9 +18,8 @@
     
     include controller($_url[0]);
 
-    if(isset($request))
-        mysqli_free_result($request);
 
     mysqli_close($connect);
+
 
 ?>

@@ -9,13 +9,13 @@
             <div class="slider">
                 <div class="slider-image">
                     <a href="#">
-                        <img class="slider-item" src="app/assets/img/slider/download.jpg" alt="slider ürün resimi"
+                        <img class="slider-item" src="/app/assets/img/slider/download.jpg" alt="slider ürün resimi"
                             style="width: 100%; height: 100%;">
-                        <img class="slider-item" src="app/assets/img/slider/bant_banner.jpg" alt="slider ürün resimi"
+                        <img class="slider-item" src="/app/assets/img/slider/bant_banner.jpg" alt="slider ürün resimi"
                             style="width: 100%; height: 100%;">
-                        <img class="slider-item" src="app/assets/img/slider/kozmetik_banner.jpg" alt="slider ürün resimi"
+                        <img class="slider-item" src="/app/assets/img/slider/kozmetik_banner.jpg" alt="slider ürün resimi"
                             style="width: 100%; height: 100%;">
-                        <img class="slider-item" src="app/assets/img/slider/sevgililer_gunu_web.jpg" alt="slider ürün resimi"
+                        <img class="slider-item" src="/app/assets/img/slider/sevgililer_gunu_web.jpg" alt="slider ürün resimi"
                             style="width: 100%; height: 100%;">
                     </a>
                 </div>
@@ -35,39 +35,39 @@
 
                 <div class="left-aside">
                     <a href="#">
-                        <img src="app/assets/img/best-categories/kozmetik3.jpg" alt="">
+                        <img src="/app/assets/img/best-categories/kozmetik3.jpg" alt="">
                     </a>
                 </div>
 
                 <div class="rigth-aside">
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/cilt_bakim.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/cilt_bakim.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/kozmetik2.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/kozmetik2.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/vücut_bakim.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/vücut_bakim.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/el.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/el.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/maske_(1).jpg" alt="">
+                            <img src="/app/assets/img/best-categories/maske_(1).jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/cilt_temizleme.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/cilt_temizleme.jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -78,39 +78,39 @@
 
                 <div class="left-aside">
                     <a href="#">
-                        <img src="app/assets/img/best-categories/evyasam.jpg" alt="">
+                        <img src="/app/assets/img/best-categories/evyasam.jpg" alt="">
                     </a>
                 </div>
 
                 <div class="rigth-aside">
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/termos.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/termos.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/canta.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/canta.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/evaksesuar.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/evaksesuar.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/terlik.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/terlik.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/dijital.jpg" alt="">
+                            <img src="/app/assets/img/best-categories/dijital.jpg" alt="">
                         </a>
                     </div>
                     <div class="category-item">
                         <a href="#">
-                            <img src="app/assets/img/best-categories/hoparlör_(1).jpg" alt="">
+                            <img src="/app/assets/img/best-categories/hoparlör_(1).jpg" alt="">
                         </a>
                     </div>
                 </div>
@@ -133,7 +133,7 @@
                     <div class="y-card">
                         <a href="<?php echo site_url("product") ?>">
                             <div class="y-card-image">
-                                <img src="app/assets/img/products/alo-v.jpg" alt="ürün resim">
+                                <img src="/app/assets/img/products/alo-v.jpg" alt="ürün resim">
                             </div>
                         </a>
                         <div class="y-card-text">
@@ -154,7 +154,7 @@
                     <div class="y-card">
                         <a href="<?php echo site_url("product") ?>">
                             <div class="y-card-image">
-                                <img src="app/assets/img/products/product-1.jpg" alt="ürün resim">
+                                <img src="/app/assets/img/products/product-1.jpg" alt="ürün resim">
                             </div>
                         </a>
                         <div class="y-card-text">
@@ -175,7 +175,7 @@
                     <div class="y-card">
                         <a href="<?php echo site_url("product") ?>">
                             <div class="y-card-image">
-                                <img src="app/assets/img/products/product2.jpg" alt="ürün resim">
+                                <img src="/app/assets/img/products/product2.jpg" alt="ürün resim">
                             </div>
                         </a>
                         <div class="y-card-text">
@@ -196,7 +196,7 @@
                     <div class="y-card">
                         <a href="<?php echo site_url("product") ?>">
                             <div class="y-card-image">
-                                <img src="app/assets/img/products/product-3.jpg" alt="ürün resim">
+                                <img src="/app/assets/img/products/product-3.jpg" alt="ürün resim">
                             </div>
                         </a>
                         <div class="y-card-text">
@@ -234,7 +234,7 @@
 
                 <div class="prop-item">
                     <div class="prop-item-image">
-                        <img src="app/assets/img/desc/gunn.png" alt="resim">
+                        <img src="/app/assets/img/desc/gunn.png" alt="resim">
                     </div>
                     <div class="prop-item-text">
                         <p>
@@ -245,7 +245,7 @@
 
                 <div class="prop-item">
                     <div class="prop-item-image">
-                        <img src="app/assets/img/desc/kargo.png" alt="resim">
+                        <img src="/app/assets/img/desc/kargo.png" alt="resim">
                     </div>
                     <div class="prop-item-text">
                         <p>
@@ -256,7 +256,7 @@
 
                 <div class="prop-item">
                     <div class="prop-item-image">
-                        <img src="app/assets/img/desc/kart.png" alt="resim">
+                        <img src="/app/assets/img/desc/kart.png" alt="resim">
                     </div>
                     <div class="prop-item-text">
                         <p>
@@ -267,7 +267,7 @@
 
                 <div class="prop-item">
                     <div class="prop-item-image">
-                        <img src="app/assets/img/desc/shop.png" alt="resim">
+                        <img src="/app/assets/img/desc/shop.png" alt="resim">
                     </div>
                     <div class="prop-item-text">
                         <p>
@@ -278,7 +278,7 @@
 
                 <div class="prop-item">
                     <div class="prop-item-image">
-                        <img src="app/assets/img/desc/orijinal.png" alt="resim">
+                        <img src="/app/assets/img/desc/orijinal.png" alt="resim">
                     </div>
                     <div class="prop-item-text">
                         <p>

@@ -1,14 +1,16 @@
 <?php include '/static/header.php' ?>
 
+
+
 <div class="product-details pw">
         <div class="product-image">
-            <img src="app/assets/img/products/alo-v.jpg" alt="ürün resimi">
+            <img src="<?php echo site_url('/app/assets/img/products/') . $product['ImagePath'] ?>" alt="product">
         </div>
         <div class="product-information">
             <h5 style="margin-top: 5px; margin-bottom: 5px">MUMUSO</h5>
-            <h2 class="product-name">Aloe Vera Nemlendirici Jel Suyu Tonik</h1>
-                <h5 class="product-number">ÜRÜN KODU : 4001003001</h5>
-                <h1 class="product-price">17,95 TL</h1>
+            <h2 class="product-name"><?php echo $product['Name'] ?></h1>
+                <h5 class="product-number"><?php echo "ÜRÜN KODU : " . $product['Id'] ?></h5>
+                <h1 class="product-price"><?php echo $product['Price'] . ' TL' ?></h1>
 
                 <div class="product-wrapper">
                     <div class="product-count-input">
@@ -46,7 +48,7 @@
                         </span>
                         <div id="temp" class="sub-product-description">
                             <p>
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Incidunt modi accusantium quod
+                            <?php echo $product['Description'] ?> 
                             </p>
                         </div>
                     </div>
@@ -77,7 +79,7 @@
                 <div class="y-card">
                     <a href="/product-details.html">
                         <div class="y-card-image">
-                            <img src="app/assets/img/products/alo-v.jpg" alt="ürün resim">
+                            <img src="/app/assets/img/products/alo-v.jpg" alt="ürün resim">
                         </div>
                     </a>
                     <div class="y-card-text">
@@ -98,7 +100,7 @@
                 <div class="y-card">
                     <a href="/product-details.html">
                         <div class="y-card-image">
-                            <img src="app/assets/img/products/product-1.jpg" alt="ürün resim">
+                            <img src="/app/assets/img/products/product-1.jpg" alt="ürün resim">
                         </div>
                     </a>
                     <div class="y-card-text">
@@ -119,7 +121,7 @@
                 <div class="y-card">
                     <a href="/product-details.html">
                         <div class="y-card-image">
-                            <img src="app/assets/img/products/product2.jpg" alt="ürün resim">
+                            <img src="/app/assets/img/products/product2.jpg" alt="ürün resim">
                         </div>
                     </a>
                     <div class="y-card-text">
@@ -140,7 +142,7 @@
                 <div class="y-card">
                     <a href="/product-details.html">
                         <div class="y-card-image">
-                            <img src="app/assets/img/products/product-3.jpg" alt="ürün resim">
+                            <img src="/app/assets/img/products/product-3.jpg" alt="ürün resim">
                         </div>
                     </a>
                     <div class="y-card-text">
@@ -166,25 +168,25 @@
         <div class="product-order-info">
             <div class="order-info-item">
                 <a href="#">
-                    <img src="app/assets/img/images/guvenli.png" alt="güvenli">
+                    <img src="/app/assets/img/images/guvenli.png" alt="güvenli">
                     <span>%100 Güvenli Alışveriş</span>
                 </a>
             </div>
             <div class="order-info-item">
                 <a href="#">
-                    <img src="app/assets/img/images/kargo.png" alt="güvenli">
+                    <img src="/app/assets/img/images/kargo.png" alt="güvenli">
                     <span>50 TL ve Üzeri Ücretsiz Kargo</span>
                 </a>
             </div>
             <div class="order-info-item">
                 <a href="#">
-                    <img src="app/assets/img/images/iade.png" alt="güvenli">
+                    <img src="/app/assets/img/images/iade.png" alt="güvenli">
                     <span>Koşulsuz İade İmkanı</span>
                 </a>
             </div>
             <div class="order-info-item">
                 <a href="#">
-                    <img src="app/assets/img/images/taksit.png" alt="güvenli">
+                    <img src="/app/assets/img/images/taksit.png" alt="güvenli">
                     <span>Kredi Kartına Taksit</span>
                 </a>
             </div>

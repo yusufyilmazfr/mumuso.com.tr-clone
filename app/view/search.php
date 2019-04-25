@@ -20,7 +20,7 @@
                 </div>
                 <div class="show-continued search-f y-center">
                     <label>
-                        <input type="checkbox" name="continued" id="continued">
+                        <input type="checkbox" name="continued" id="continued" disabled checked>
                         <span>Tükenenler Gösterme</span>
                     </label>
                 </div>
@@ -29,144 +29,33 @@
 
             <div class="b-products">
 
+                <?php  foreach($products as $product) { ?>
+
+
                 <div class="b-product x-search">
                     <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1.jpg" alt="product">
+                        <a href="<?php echo "/product/" . $product['Id'] ?>">
+                            <img src="<?php echo site_url('/app/assets/img/products/') . $product['ImagePath'] ?>" alt="product">
                         </a>
                     </div>
                     <div class="b-product-text">
-                        <a href="#">
+                        <a href="<?php echo "/product/" . $product['Id'] ?>">
                             <div class="company-name">
                                 <span>Mumuso</span>
                             </div>
                             <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
+                                <span><?php echo $product['Name'] ?></span>
                             </div>
                         </a>
                     </div>
                     <div class="b-product-price">
                         <span>
-                            39,95 TL
+                            <?php  echo $product['Price'] . ' TL' ?>
                         </span>
                     </div>
                 </div>
 
-                <div class="b-product x-search">
-                    <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1 (2).jpg" alt="product">
-                        </a>
-                    </div>
-                    <div class="b-product-text">
-                        <a href="#">
-                            <div class="company-name">
-                                <span>Mumuso</span>
-                            </div>
-                            <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="b-product-price">
-                        <span>
-                            39,95 TL
-                        </span>
-                    </div>
-                </div>
-
-                <div class="b-product x-search">
-                    <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1 (3).jpg" alt="product">
-                        </a>
-                    </div>
-                    <div class="b-product-text">
-                        <a href="#">
-                            <div class="company-name">
-                                <span>Mumuso</span>
-                            </div>
-                            <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="b-product-price">
-                        <span>
-                            39,95 TL
-                        </span>
-                    </div>
-                </div>
-
-                <div class="b-product x-search">
-                    <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1 (3).jpg" alt="product">
-                        </a>
-                    </div>
-                    <div class="b-product-text">
-                        <a href="#">
-                            <div class="company-name">
-                                <span>Mumuso</span>
-                            </div>
-                            <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="b-product-price">
-                        <span>
-                            39,95 TL
-                        </span>
-                    </div>
-                </div>
-
-
-                <div class="b-product x-search">
-                    <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1.jpg" alt="product">
-                        </a>
-                    </div>
-                    <div class="b-product-text">
-                        <a href="#">
-                            <div class="company-name">
-                                <span>Mumuso</span>
-                            </div>
-                            <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="b-product-price">
-                        <span>
-                            39,95 TL
-                        </span>
-                    </div>
-                </div>
-
-                <div class="b-product x-search">
-                    <div class="b-product-image">
-                        <a href="#">
-                            <img src="/app/assets/img/products/canta1 (4).jpg" alt="product">
-                        </a>
-                    </div>
-                    <div class="b-product-text">
-                        <a href="#">
-                            <div class="company-name">
-                                <span>Mumuso</span>
-                            </div>
-                            <div class="b-product-name">
-                                <span>Sevimli Yüz Çantası - Pembe</span>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="b-product-price">
-                        <span>
-                            39,95 TL
-                        </span>
-                    </div>
-                </div>
+            <?php }?>
 
             </div>
         </div>

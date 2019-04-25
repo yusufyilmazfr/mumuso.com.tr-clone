@@ -13,7 +13,6 @@ function get($name){
         }
         return filterUrl($_GET[$name]);
     }
-    
     return false;
 }
 

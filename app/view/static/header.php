@@ -1,5 +1,6 @@
 <?php
-    print_r($_SESSION)
+    echo '<br>';
+    print_r($_SESSION);
  ?>
 
 <html lang="en"><head>
@@ -45,7 +46,7 @@
 
             <div class="search">
                 <div style="position: relative;">
-                    <form action="search">
+                    <form action="/search/product">
                         <i class="fal fa-search"></i>
                         <input type="text" name="q" id="search" class="search-input" placeholder="Çok Sevdiğiniz Mumuso Ürünleri...">
                     </form>
@@ -129,7 +130,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/297.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/297.jpg" alt="">
                         </div>
                     </div>
                 </li>
@@ -170,7 +171,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/300.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/300.jpg" alt="">
                         </div>
                     </div>
                 </li>
@@ -211,7 +212,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/304.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/304.jpg" alt="">
                         </div>  
                     </div>
                 </li>
@@ -225,7 +226,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/301.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/301.jpg" alt="">
                         </div>
                     </div>
                 </li>
@@ -269,7 +270,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/303.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/303.jpg" alt="">
                         </div>
                     </div>
                 </li>
@@ -286,7 +287,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/298.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/298.jpg" alt="">
                         </div>
                     </div>
                 </li>
@@ -324,7 +325,7 @@
                             </ul>
                         </div>
                         <div class="sub-menu-item-image">
-                            <img src="app/assets/img/sub-menu/299.jpg" alt="">
+                            <img src="/app/assets/img/sub-menu/299.jpg" alt="">
                         </div>
                     </div>
                 </li>

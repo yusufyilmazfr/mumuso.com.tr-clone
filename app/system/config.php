@@ -15,6 +15,6 @@
     define('controller',dir . '/app/controller');
     define('view',dir . '/app/view');
     define('url', 'http://' . $_SERVER['HTTP_HOST']);
-    define('assets', dir . '/app/assets');
+    // define('assets', dir . '/app/assets');
 
 ?>
