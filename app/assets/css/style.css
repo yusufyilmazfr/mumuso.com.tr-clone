@@ -645,13 +645,10 @@ h1,h2,h3,h4,h5,h6{
     display: flex;
     justify-content: center;
     align-items: center;
-    font-weight: bold;
+    /* font-weight: bold; */
     /* background-color: maroon; */
     font-size: 14px;
     cursor: pointer;
-}
-.product-comments:hover .sub-comment{
-    display: block;
 }
 .product-order-info{
     margin-right: auto;
@@ -685,17 +682,92 @@ h1,h2,h3,h4,h5,h6{
 
 .sub-product-description, .sub-comment{
     width: 100%;
-    height: 200px;
     display: none;
     position: absolute;
     top: 50px;
     left: 0;
 }
-
 .sub-comment{
-     background-color: crimson;
+    /* background-color: crimson; */
+    display: none;
 }
 
+.new-comment{
+   display: flex;
+   /* background-color: red; */
+   justify-content: space-between;
+   margin-top: 10px;
+   display: none;
+}
+.comment-block{
+   width: 48%;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: space-between;
+}
+.point, .comment-header .header{
+    width: 100%;
+    height: 30px;
+    outline: none;
+    border: 1px solid #a39c9c;
+}
+.comment-description textarea{
+    width: 100%;
+    height: 75px;
+    font-size: 15px;
+    outline: none;
+}
+
+.send-comment{
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: #9E9E9E;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    color: #212121;
+    letter-spacing: 4px;
+    font-weight: bold;
+}
+
+.comments{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.comment-response{
+    display: flex;
+    width: 90%;
+    margin-left: auto;
+}
+.comment{
+    display: flex;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    /* border: 1px solid #bbb6b6; */
+    padding: 2px 5px;
+}
+.comment-member-info{
+    width: 40%;
+}
+.comment-info{
+    width: 60%;
+}
+.like-comment-btn{
+    border: 0;
+    padding: 5px 5px;
+    cursor: pointer;
+    outline: none;
+}
+.bg-success{
+    color: #fff;
+    background-color: #5cb85c;
+}
+.bg-error{
+    color: #fff;
+    background-color: #f33939;
+}
 
 
 

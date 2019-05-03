@@ -8,6 +8,19 @@ let backToTopButton = document.querySelector('.back-to-top-button');
 let ChangeProductCountBase = document.querySelector('.add-to-card-count');
 let productCountInDetails = document.getElementById('productCount');
 
+let sendComment = document.getElementById('send-comment');
+let commentsList = document.getElementById('comments');
+let commentDescription = document.getElementById('description');
+let commentHeader = document.querySelector('.comment-header #header');
+let productId = document.getElementById('productId');
+let userId = document.getElementById('userId');
+
+let btnList = document.getElementsByClassName('like-comment-btn');
+
+let showLikedMembers = document.getElementsByClassName('showLikedMembers');
+let closeLikedMembersList = document.getElementById('closeLikedMembersList');
+
+
 let login = document.getElementById('login');
 let loginEmail = document.getElementById('email');
 let loginPassword = document.getElementById('password');
@@ -37,6 +50,12 @@ window.onload = function () {
         }, 3000);
     }
 
+    if(btnList){
+        AddOrRemoveLike();
+    }
+    if(showLikedMembers){
+        showLikedMembersToUI();
+    }
 }
 
 
@@ -49,6 +68,144 @@ function AddEventsToItems() {
     addEventInExistItem(backToTopButton, 'click', clearScroll);
     addEventInExistItem(login, 'click', ControlToUserLogin);
     addEventInExistItem(saveUser, 'click', CreateMember);
+    addEventInExistItem(sendComment, 'click', PostComment);
+    addEventInExistItem(closeLikedMembersList, 'click', closeLikedList);
+
+    
+
+}
+
+function closeLikedList(e){
+    e.target.parentNode.parentNode.style.display = 'none';
+}
+
+function showLikedMembersToUI(){
+    Array.from(showLikedMembers).forEach(function(item){
+        item.addEventListener('click',function(e){
+
+            let currentElement = e.target;
+            
+            
+            let url = '/comment/show_liked_members';
+
+            data = {
+                commentId : currentElement.getAttribute('duygu')
+            };
+
+            new Post(url,data,function(value){
+                let likedMemberList = document.getElementById('liked-members-list');
+                
+                likedMemberList.innerHTML = '';
+
+                likedMemberList.parentNode.parentNode.style.top = document.body.scrollTop + "px"
+
+
+                value = JSON.parse(value);
+
+                value.forEach(function(data){
+                    var element = document.createElement('li');
+                    element.innerText = data.Name + ' ' + data.Surname;
+
+                    likedMemberList.appendChild(element);
+                });
+
+                likedMemberList.parentNode.parentNode.style.display = 'block';
+
+            });
+        });
+    });
+}
+
+function AddOrRemoveLike(){
+
+    
+    Array.from(btnList).forEach(function(value){
+        value.addEventListener('click',function(e){
+            
+            let currentElement = e.target;
+
+            let url = '/comment/comment_like';
+            let data = {
+                CommentId : currentElement.getAttribute('duygu')
+            };
+
+            new Post(url,data,function(response){
+                currentElement.classList.toggle('bg-error');
+                currentElement.classList.toggle('bg-success');
+                
+                let likeCount = currentElement.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].innerText;
+                
+                if(response == 1){
+                 currentElement.innerHTML = 'Beğenmekten Vazgeç';   
+                 likeCount ++;   
+                }
+                else if(response == 0){
+                 currentElement.innerHTML = 'Beğen';   
+                 likeCount --;   
+                }
+                currentElement.parentNode.parentNode.parentNode.childNodes[3].childNodes[1].innerText = likeCount;
+
+            });
+        });
+    });
+}
+
+function PostComment(e) {
+    let data = {
+        Title: commentHeader.value,
+        Description: commentDescription.value,
+        MemberId: userId.value,
+        ProductId: productId.value
+    };
+
+    let url = '/comment/add';
+
+    new Post(url, data, function (value) {
+        if (value == -1) {
+            alert('ters giden bir şeyler var, lütfen daha sonra tekrar deneyiniz..');
+
+        }
+        else {
+            value = JSON.parse(value);
+            let comment = `<div class="comment">
+                    <div class="comment-member-info">
+                        <div class="comment-added-date">
+                            <b> ${value.Name} ${value.Surname} </b>
+                            <span> ${value.AddedDate} </span>
+                        </div>
+                        <div class="comment-like-cont">
+                            Beğeni sayısı: <b>0</b>
+                        </div>
+                        <br>
+                        <div>
+                            <span>Yorumu onaylıyor musunuz?</span>
+                            <div>
+                                <button class="like-comment-btn bg-success">Beğen</button>
+                            </div>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="comment-info">
+                        <div class="comment-title">
+                            <span> ${value.Title} </span>
+                        </div>
+                        <div class="comment-description">
+                        <span> ${value.Description} </span>
+                        </div>
+                    </div>
+                </div>`;
+
+            let commentTag = document.createElement('div');
+
+            commentTag.innerHTML = comment;
+
+            commentsList.insertBefore(commentTag, commentsList.firstChild);
+
+            commentHeader.value ='';
+            commentDescription.value ='';
+        }
+    });
+
 }
 
 function CreateMember(e) {
@@ -76,16 +233,16 @@ function CreateMember(e) {
 
     let url = '/signup/create';
 
-    new Post(url,data,function(response){
-        if(response == 0)
+    new Post(url, data, function (response) {
+        if (response == 0)
             alert('lütfen bütün alanları doldurunuz..');
-        else if(response == -1)
+        else if (response == -1)
             alert('böyle bir kullanıcı zaten bulunuyor...');
-        else if(response == 1){
+        else if (response == 1) {
             alert('kayıt başarılı, yönlendiriliyorsunuz... :)))');
-            window.location  = '/profile';
+            window.location = '/profile';
         }
-            
+
     });
 
 }
@@ -167,7 +324,7 @@ function ControlToUserLogin(e) {
             alert('Hatalı kullanıcı adı veya parola');
         else if (value == 0)
             alert('Lütfen bütün alanları doldurunuz..');
-        else{
+        else {
             alert('giriş başarılı, yönlendiriliyorsunuz...');
             window.location = '/profile';
         }
@@ -191,6 +348,20 @@ function showDescription() {
         description.style.display = 'block';
         document.getElementById('temp2').style.marginTop = description.offsetHeight + 'px';
     }
+}
+
+function showComments() {
+    let comments = document.getElementById('comments_base');
+
+    if (comments.style.display == 'block') {
+        comments.style.display = 'none';
+        document.getElementById('temp2').style.marginTop = '0px';
+    }
+    else {
+        comments.style.display = 'block';
+        document.getElementById('temp2').style.marginTop = comments.offsetHeight + 150 + 'px';
+    }
+
 }
 
 function clearScroll() {
