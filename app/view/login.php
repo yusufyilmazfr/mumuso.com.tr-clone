@@ -18,9 +18,9 @@
         <div class="y-input">
             <input required type="password" name="password" id="password" placeholder="Parola">
         </div>
-        <div class="login-remember-me" id="remember_me" style="margin-top: 10px; margin-bottom: 10px;">
+        <div class="login-remember-me"  style="margin-top: 10px; margin-bottom: 10px;">
             <label>
-                <input type="checkbox" name="remember_me"> 
+                <input type="checkbox" id="remember_me" name="remember_me"> 
                 Remember me
             </label>
         </div>

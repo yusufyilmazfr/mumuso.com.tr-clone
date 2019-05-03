@@ -24,6 +24,7 @@ let closeLikedMembersList = document.getElementById('closeLikedMembersList');
 let login = document.getElementById('login');
 let loginEmail = document.getElementById('email');
 let loginPassword = document.getElementById('password');
+let rememberMe  = document.getElementById('remember_me');
 
 let saveUser = document.getElementById('saveUser');
 let TC = document.getElementById('TC');
@@ -309,8 +310,10 @@ function ControlToUserLogin(e) {
 
     let data = {
         "email": loginEmail.value,
-        "password": loginPassword.value
+        "password": loginPassword.value,
+        "remember_me" : rememberMe.checked ? 1 : 0
     };
+
 
     if (!data.email || !data.password) {
         alert('lütfen bütün alanları doldurunuz!');
@@ -320,14 +323,14 @@ function ControlToUserLogin(e) {
     let url = "login/control";
 
     new Post(url, data, function (value) {
-        if (value == -1)
-            alert('Hatalı kullanıcı adı veya parola');
-        else if (value == 0)
-            alert('Lütfen bütün alanları doldurunuz..');
-        else {
-            alert('giriş başarılı, yönlendiriliyorsunuz...');
-            window.location = '/profile';
-        }
+            if (value == -1)
+                alert('Hatalı kullanıcı adı veya parola');
+            else if (value == 0)
+                alert('Lütfen bütün alanları doldurunuz..');
+            else {
+                alert('giriş başarılı, yönlendiriliyorsunuz...');
+                window.location = '/profile';
+            }
     });
 
 }
