@@ -38,6 +38,11 @@ let Year = document.getElementById('Year');
 let Password = document.getElementById('Password');
 let rePassword = document.getElementById('rePassword');
 
+
+
+let addToCardButton = document.getElementById('addToCardButton');
+let CardProductCount = document.getElementById('CardProductCount');
+
 window.onload = function () {
 
     AddEventsToItems();
@@ -71,9 +76,23 @@ function AddEventsToItems() {
     addEventInExistItem(saveUser, 'click', CreateMember);
     addEventInExistItem(sendComment, 'click', PostComment);
     addEventInExistItem(closeLikedMembersList, 'click', closeLikedList);
+    addEventInExistItem(addToCardButton,'click',addToCard);
+}
 
-    
+function addToCard(e){
+    let url = '/card/add';
+    let data = {
+        productId : productId.value,
+        productCount : productCount.value
+    };
 
+    new Post(url,data, function(value){
+        let message  = JSON.parse(value).message;
+        let productCount = JSON.parse(value).productCount;
+
+        CardProductCount.innerText = productCount;
+        alert(message);
+    });
 }
 
 function closeLikedList(e){
@@ -119,7 +138,6 @@ function showLikedMembersToUI(){
 
 function AddOrRemoveLike(){
 
-    
     Array.from(btnList).forEach(function(value){
         value.addEventListener('click',function(e){
             
@@ -176,12 +194,13 @@ function PostComment(e) {
                         </div>
                         <div class="comment-like-cont">
                             Beğeni sayısı: <b>0</b>
+                            <i style="font-size: 20px; color:#008e66;" class="fal fa-eye showLikedMembers" duygu="118"></i>
                         </div>
                         <br>
                         <div>
                             <span>Yorumu onaylıyor musunuz?</span>
                             <div>
-                                <button class="like-comment-btn bg-success">Beğen</button>
+                                <button duygu="${value.Id}" class="like-comment-btn bg-success">Beğen</button>
                             </div>
                         </div>
                         <br>
@@ -204,6 +223,18 @@ function PostComment(e) {
 
             commentHeader.value ='';
             commentDescription.value ='';
+            
+            
+            showLikedMembers = document.getElementsByClassName('showLikedMembers');
+            btnList = document.getElementsByClassName('like-comment-btn');
+            
+            console.log(btnList);
+            clearClickEvent(btnList);
+                 
+            
+            // clearClickEvent(showLikedMembers);
+
+            // showLikedMembersToUI();            
         }
     });
 

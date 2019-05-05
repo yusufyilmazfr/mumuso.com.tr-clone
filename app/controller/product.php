@@ -29,6 +29,8 @@
         }
     }
 
+    sort_comments($comments);
+
         
     if($product == null){
         echo "product not found!";

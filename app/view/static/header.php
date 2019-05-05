@@ -67,11 +67,11 @@
 
                 </div>
                 <div class="shopping-card">
-                    <a href="#">
+                    <a href="/card">
                         <i class="fal fa-shopping-cart" style="font-size: 36px;"></i>
                         <div class="y-product-count">
-                            <span>
-                                0
+                            <span id="CardProductCount">
+                                <?php echo !isset($_SESSION['Card']) ? 0 : array_sum($_SESSION['Card']) ?>
                             </span>
                         </div>
                     </a>

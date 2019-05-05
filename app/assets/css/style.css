@@ -1162,3 +1162,41 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* Search Page End */
+
+
+/* Card Page Start */
+
+.basket-card{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.card-table tr:nth-child(even){
+    background-color: #dddddd;
+}
+.card-table td{
+    border: 1px solid #ddd;
+    padding: 13px 15px;
+}
+.card-table th{
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.btn-card{
+    width: 25px;
+    height: 25px;
+    cursor: pointer;
+    border: none;
+    outline: none;
+}
+.increase-count{
+    background-color: #5cb85c;
+}
+.decrease-count{
+    background-color: #B28E00
+}
+.trash-product{
+    background-color: #f33939;
+}
+/* Card Page End */

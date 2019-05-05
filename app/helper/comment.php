@@ -65,8 +65,7 @@ function add_or_remove_like($member_id, $comment_id){
 
 }
 
-function SortComments(){
 
+function sort_comments($arr, $parentId = 0){
 }
 
-SortComments();

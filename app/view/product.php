@@ -19,7 +19,6 @@
             <h2 class="product-name"><?php echo $product['Name'] ?></h1>
                 <h5 class="product-number"><?php echo "ÜRÜN KODU : " . $product['Id'] ?></h5>
                 <h1 class="product-price"><?php echo $product['Price'] . ' TL' ?></h1>
-
                 <div class="product-wrapper">
                     <div class="product-count-input">
                         <div class="add-to-card-count">
@@ -27,7 +26,7 @@
                                 -
                             </div>
                             <div class="duygu">
-                                <input readonly type="text" value="0" name="productCount" id="productCount">
+                                <input readonly type="text" value="1" name="productCount" id="productCount">
                             </div>
                             <div class="increase-product">
                                 +
@@ -36,7 +35,7 @@
                     </div>
 
                     <div class="add-to-card">
-                        <a href="#">
+                        <a href="#" id="addToCardButton">
                             SEPETE EKLE
                             <i class="fal fa-shopping-cart" style="font-size: 16px; font-weight: 500"></i>
                         </a>
