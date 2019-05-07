@@ -24,9 +24,15 @@
                             <td><?php echo $value['Price'] . ' TL'?></td>
                             <td><?php echo $_SESSION['Card'][$value['Id']] ?></td>
                             <td>
-                                <button class="increase-count btn-card"><i class="fal fa-plus"></i></button>
-                                <button class="decrease-count btn-card"><i class="fal fa-minus"></i></button>
-                                <button class="trash-product btn-card"><i class="fal fa-trash"></i></button>
+                                <form style="display: inline-block;" action="<?php echo '/card/decrease/'.$value['Id'] ?>">
+                                    <button duygu="<?php echo $value['Id'] ?>" id="decrease-count" class="decrease-count btn-card"><i class="fal fa-minus"></i></button>
+                                </form>
+                                <form style="display: inline-block;" action="#">
+                                    <button disabled duygu="<?php echo $value['Id'] ?>" id="increase-count" class="increase-count btn-card"><i class="fal fa-plus"></i></button>
+                                </form>
+                                <form style="display: inline-block;" action="<?php echo '/card/remove/'.$value['Id'] ?>">
+                                    <button duygu="<?php echo $value['Id'] ?>" id="trash-product" class="trash-product btn-card"><i class="fal fa-trash"></i></button>
+                                </form>
                             </td>
                         </tr>
                     <?php $total += $value['Price'] * $_SESSION['Card'][$value['Id']]; ?>

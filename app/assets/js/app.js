@@ -42,6 +42,7 @@ let rePassword = document.getElementById('rePassword');
 
 let addToCardButton = document.getElementById('addToCardButton');
 let CardProductCount = document.getElementById('CardProductCount');
+let trashProduct = document.getElementById('trash-product');
 
 window.onload = function () {
 
@@ -77,6 +78,11 @@ function AddEventsToItems() {
     addEventInExistItem(sendComment, 'click', PostComment);
     addEventInExistItem(closeLikedMembersList, 'click', closeLikedList);
     addEventInExistItem(addToCardButton,'click',addToCard);
+    addEventInExistItem(trashProduct,'click',RemoveProductInCard);
+}
+
+function RemoveProductInCard(e){
+    
 }
 
 function addToCard(e){
