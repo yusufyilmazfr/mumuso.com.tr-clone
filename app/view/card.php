@@ -42,11 +42,23 @@
                         <tr>
                             <td colspan="3"></td>
                             <td colspan="2">Toplam Fiyat <?php echo $total . ' TL' ?></td>
-                            <td colspan="1"></td>
+                            <td colspan="1">
+                                <div>
+                                    <a href="javascript:void(0);" style="color: #212121;" class="active">
+                                        Alışverişi Tamamla
+                                        <i class="fal fa-check" style="font-size: 16px; font-weight: 500; color:#008e66"></i>
+                                    </a>
+                                </div>
+                            </td>
                         </tr>
                     </tfoot>
                 </table>
             </div>
+        </div>
+        <div>
+
+        
+        
         </div>
     <?php } else{ ?>
         <div class="pw y-center" style="margin-top:30px; margin-bottom: 30px; flex-direction: column !important">
@@ -55,4 +67,5 @@
             <h1 style="font-size: 50px; font-weigth: normal; color:#008e66;">Kanka sepet boş!</h1>
         </div>
     <?php }?>
+    
 <?php include 'static/footer.php' ?>

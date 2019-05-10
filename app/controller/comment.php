@@ -5,8 +5,9 @@
         $description = post('Description');
         $memberId = post('MemberId');
         $productId = post('ProductId');
+        $parentId = post('ParentId') ? post('ParentId') : 0;
 
-        $query = "INSERT INTO comments (Title,Description,MemberId,ProductId) values('$title','$description',$memberId,$productId)";
+        $query = "INSERT INTO comments (Title,Description,MemberId,ProductId,ParentId) values('$title','$description',$memberId,$productId,$parentId)";
 
         if(mysqli_query($connect,$query)){
             $new_comment_id =  mysqli_insert_id($connect);

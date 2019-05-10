@@ -16,6 +16,10 @@ let productId = document.getElementById('productId');
 let userId = document.getElementById('userId');
 
 let btnList = document.getElementsByClassName('like-comment-btn');
+let addSubCommentBtnList = document.getElementsByClassName('xx');
+
+
+let session = document.getElementById('sessionControl');
 
 let showLikedMembers = document.getElementsByClassName('showLikedMembers');
 let closeLikedMembersList = document.getElementById('closeLikedMembersList');
@@ -46,6 +50,9 @@ let trashProduct = document.getElementById('trash-product');
 
 window.onload = function () {
 
+
+    
+
     AddEventsToItems();
 
     if (sliderItemList.length > 0) {
@@ -56,7 +63,7 @@ window.onload = function () {
             increaseSlideIndex();
         }, 3000);
     }
-
+    PostSubComment();
     if(btnList){
         AddOrRemoveLike();
     }
@@ -79,10 +86,54 @@ function AddEventsToItems() {
     addEventInExistItem(closeLikedMembersList, 'click', closeLikedList);
     addEventInExistItem(addToCardButton,'click',addToCard);
     addEventInExistItem(trashProduct,'click',RemoveProductInCard);
+
+}
+
+function PostSubComment(e){
+    Array.from(addSubCommentBtnList).forEach(function(element){
+        element.addEventListener('click',function(e){
+
+            let subComment =  e.target.parentNode.parentNode.childNodes[1].childNodes[1].childNodes[1].value;
+
+            let parentCommentId = e.target.getAttribute('parent_id');
+            let memberId = e.target.getAttribute('member_id');
+            let product_id = e.target.getAttribute('product_id');
+            
+            element.addEventListener('click',function(e){
+
+                let data = {
+                    Title: '',
+                    Description: subComment,
+                    MemberId: memberId,
+                    ProductId: product_id,
+                    ParentId: parentCommentId
+                };
+            
+                let url = '/comment/add';
+                
+                new Post(url,data,function(value){
+                    if(value == -1){
+                        alert('ters giden bir şeyler var, lütfen daha sonra tekrar deneyiniz..');
+                        return;
+                    }
+
+                    alert('yorum başarıyla yapıldı..');
+                    location.reload();
+
+                });
+
+
+            });
+        });
+    });
 }
 
 function RemoveProductInCard(e){
     
+}
+
+function sessionStatus(){
+    return session.value == 0 ? 0 : 1;
 }
 
 function addToCard(e){
@@ -106,7 +157,10 @@ function closeLikedList(e){
 }
 
 function showLikedMembersToUI(){
+
+    
     Array.from(showLikedMembers).forEach(function(item){
+
         item.addEventListener('click',function(e){
 
             let currentElement = e.target;
@@ -146,6 +200,11 @@ function AddOrRemoveLike(){
 
     Array.from(btnList).forEach(function(value){
         value.addEventListener('click',function(e){
+            
+            if(sessionStatus()=="0"){
+                alert("lütfen giriş yapınız..");
+                return;
+            }       
             
             let currentElement = e.target;
 
@@ -234,8 +293,8 @@ function PostComment(e) {
             showLikedMembers = document.getElementsByClassName('showLikedMembers');
             btnList = document.getElementsByClassName('like-comment-btn');
             
-            console.log(btnList);
-            clearClickEvent(btnList);
+            // console.log(btnList);
+            // clearClickEvent(btnList);
                  
             
             // clearClickEvent(showLikedMembers);

@@ -98,10 +98,10 @@
                             
                                 </div>
                             </div>
-
+                            <input name="sessionControl" id="sessionControl" type="hidden" value="0">
                             <div class="comments" id="comments">
                                     <?php foreach($comments as $key => $value) { ?>
-                                        
+                                        <?php if($value['ParentId']!=0) continue; ?>
                                         <div style="border: 1px solid #ddd; padding: 15px 0; margin: 10px 0;">
                                             <div class="comment">
                                                 <div class="comment-member-info">
@@ -114,9 +114,11 @@
                                                         <b>
                                                             <?php echo $value['like_count'] ?>
                                                         </b>
-                                                        <i style="font-size: 20px; color:#008e66;" class="fal fa-eye showLikedMembers" duygu="<?php echo $value['Id'] ?>"></i>
                                                     </div>
                                                     <br>
+                                                    
+                                                        <i style="font-size: 20px; color:#008e66;" class="fal fa-eye showLikedMembers" duygu="<?php echo $value['Id'] ?>"></i>
+                                                        <?php echo smooth_comment_list(who_liked_comment($value['Id']));  ?>
                                                     <div>
                                                         <span>Yorumu onaylıyor musunuz?</span>
                                                         <?php if(!isset($_SESSION['Member'])){ ?>
@@ -146,59 +148,76 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                          
+                                            <?php foreach($comments as $sub_key => $sub_value){ ?>
+                                                <?php if($value['Id'] == $sub_value['ParentId']){ ?>
                                             
-                                            
-                                            <!-- <div class="comment-response">
-                                                <div class="comment-member-info">
-                                                    <div class="comment-added-date">
-                                                        <b> Gülizar Yılmaz </b>
-                                                        <span> 05 3, 2019, 2:31 </span>
-                                                    </div>
-                                                    <div class="comment-like-cont">
-                                                        Beğeni sayısı:
-                                                        <b>2</b>
-                                                        <i style="font-size: 20px; color:#008e66;" class="fal fa-eye showLikedMembers" duygu="110"></i>
-                                                    </div>
-                                                    <br>
-                                                    <div>
-                                                        <span>Yorumu onaylıyor musunuz?</span>
-                                                        <div>
-                                                            <button id="unlike-comment" duygu="110" class="like-comment-btn bg-error">Beğenmekten Vazgeç</button>
+                                                    <div class="comment-response">
+                                                        <div class="comment-member-info">
+                                                            <div class="comment-added-date">
+                                                                <b> <?php echo $sub_value['Name'] . ' ' . $sub_value['Surname'] ?></b>
+                                                                <span> <?php echo date("m j, Y, g:i",strtotime($value['AddedDate'])) ?> </span>
+                                                            </div>
+                                                            <div class="comment-like-cont">
+                                                                Beğeni sayısı:
+                                                                <b>
+                                                                    <?php echo $sub_value['like_count'] ?>
+                                                                </b>
+                                                            </div>
+                                                                <i style="font-size: 20px; color:#008e66;" class="fal fa-eye showLikedMembers" duygu="<?php echo $sub_value['Id'] ?>"></i>
+                                                                <?php echo smooth_comment_list(who_liked_comment($sub_value['Id']));  ?>
+
+                                                            <br>
+                                                            <div>
+                                                                <span>Yorumu onaylıyor musunuz?</span>
+                                                                <?php if(!isset($_SESSION['Member'])){ ?>
+                                                                <div>
+                                                                    <button id="like-comment" duygu="<?php echo $sub_value['Id'] ?>" class="like-comment-btn bg-success">Beğen</button>
+                                                                </div>
+                                                            <?php } else{ ?>
+                                                                <div>
+                                                                    <?php if($sub_value['is_liked'] > 0){ ?>
+                                                                            <button id="unlike-comment" duygu="<?php echo $sub_value['Id'] ?>"  class="like-comment-btn bg-error">Beğenmekten Vazgeç</button>
+                                                                        <?php } else{?>
+                                                                            <button id="like-comment" duygu="<?php echo $sub_value['Id'] ?>" class="like-comment-btn bg-success">Beğen</button>
+                                                                    <?php }?>
+                                                                </div>
+                                                            <?php } ?>
+                                                            </div>
+                                                            <br>
+                                                        </div>
+                                                        <div class="comment-info">
+                                                            <div class="comment-title">
+                                                                <span><?php // echo  $sub_value['Title'] ?></span>
+                                                            </div>
+                                                            <div class="comment-description">
+                                                                <span> <?php echo  $sub_value['Description']  ?> </span>
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <br>
-                                                </div>
-                                                <div class="comment-info">
-                                                    <div class="comment-title">
-                                                        <span>Başarısız!</span>
-                                                    </div>
-                                                    <div class="comment-description">
-                                                    <span> Maalesef </span>
-                                                    </div>
-                                                </div>
-                                            </div>
-
-
-
-
-
-                                            <div>
-                                                <div class="new-subcomment" style="width:90%; margin-left:auto">
-                                                    <div class="comment-block">
-                                                        <div class="comment-description">
-                                                            <textarea required="" placeholder="Yorum" name="description" id="description" cols="10" rows="10"></textarea>
+                                                    
+                                                <?php }?>
+                                            
+                                            <?php } ?>
+                                          
+                                            <?php if(isset($_SESSION['Member'])){ ?>
+                                                <div>
+                                                    <div class="new-subcomment" style="width:90%; margin-left:auto">
+                                                        <div class="comment-block">
+                                                            <div class="comment-description">
+                                                                <textarea required="" placeholder="Yorum" name="description" id="description" cols="10" rows="10"></textarea>
+                                                            </div>
+                                                        </div>
+                                                            <br>
+                                                        <div class="comment-block">
+                                                            <button id="send-comment" product_id="<?php echo $product['Id'] ?>" member_id="<?php echo $_SESSION['Member']['Id'] ?>" parent_id="<?php echo $value['Id'] ?>"  class="xx send-comment">
+                                                                Gönder
+                                                            </button>
                                                         </div>
                                                     </div>
-                                                        <br>
-                                                    <div class="comment-block">
-                                                        <button id="send-comment" class="send-comment">
-                                                            Gönder
-                                                        </button>
-                                                    </div>
-
                                                 </div>
-                                            </div>
-                                     -->
+                                            <?php }?>
+
                                         </div>
                                     <?php } ?>
                             </div>
@@ -220,20 +239,21 @@
                                     else{
                                         alert('Lütfen yorum yapmak için giriş yapınız..');
                                     }
-                                })
-                                
-                                
-                                if(document.getElementById('like-comment')){
-                                    document.getElementById('like-comment').addEventListener('click',function(e){
+                                });
+
+                                document.getElementById('sessionControl').value = sessionControl;
+
+                                // if(document.getElementById('like-comment')){
+                                //     document.getElementById('like-comment').addEventListener('click',function(e){
                                         
-                                        if(sessionControl){
-                                            var btn = document.getElementById('like-comment');
-                                        }
-                                        else{
-                                            alert('Yorumu beğenmek için lütfen giriş yapınız.');
-                                        }
-                                    });
-                                }
+                                //         if(sessionControl){
+                                //             var btn = document.getElementById('like-comment');
+                                //         }
+                                //         else{
+                                //             alert('Yorumu beğenmek için lütfen giriş yapınız.');
+                                //         }
+                                //     });
+                                // }
                             </script>
                         </div>
                     </div>
@@ -340,6 +360,9 @@
         </div>
     </div>
     <!-- Top Sellers End -->
+    <div class="pw" style="margin-top: 30px; margin-bottom:30px">
+            <?php include View('survey') ?>
+    </div>
 
     <div class="pw">
         <div class="product-order-info">

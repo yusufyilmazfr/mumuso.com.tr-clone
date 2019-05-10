@@ -13,6 +13,21 @@ function get_comment_like_count($commentId){
     return $comment_like_count_response['Count'];
 }
 
+function who_liked_comment($comment_id){
+    global $connect;
+
+    $liked_person_list = "SELECT M.Name, M.Surname FROM comments as C INNER JOIN comment_user_like AS CUL ON C.Id = CUL.CommentId INNER JOIN members AS M ON CUL.UserId = M.Id WHERE C.Id = $comment_id LIMIT 2";
+
+    $request = mysqli_query($connect, $liked_person_list);
+    $list = [];
+
+    while($person = mysqli_fetch_assoc($request)){
+        $list[] = $person;
+    }
+    
+    return $list;
+}
+
 function member_is_liked($member_id, $comment_id){
     
     global $connect;
@@ -65,6 +80,15 @@ function add_or_remove_like($member_id, $comment_id){
 
 }
 
+function smooth_comment_list($arr){
+    $temp = '';
+
+    foreach($arr as $key => $value){
+        $temp .= $value['Name'] . ', ';
+    }
+
+    return substr($temp,0, strlen($temp) -2);
+}
 
 function sort_comments($arr, $parentId = 0){
 }

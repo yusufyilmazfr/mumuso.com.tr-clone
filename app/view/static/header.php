@@ -41,12 +41,12 @@
 
             <div class="search">
                 <div style="position: relative;">
-                    <form action="/search/product">
+                    <form id="search_product" action="/search/product">
                         <i class="fal fa-search"></i>
                         <input type="text" name="q" id="search" class="search-input" placeholder="Çok Sevdiğiniz Mumuso Ürünleri...">
                     </form>
                 </div>
-                <button class="search-button active">Ara</button>
+                <button onclick="document.getElementById('search_product').submit()" class="search-button active">Ara</button>
             </div>
 
             <div class="login-signup">
